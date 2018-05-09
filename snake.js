@@ -27,3 +27,30 @@ let food = {
 
 let score = 0;
 
+//function to draw everything
+function draw(){
+    
+    
+   //draw background 
+    ctx.drawImage(ground,0,0);
+    
+    //draw snakehead
+    for( let i = 0; i < snake.length ; i++){
+        ctx.fillStyle = ( i == 0 )? "green" : "white";
+        ctx.fillRect(snake[i].x,snake[i].y,box,box);
+        
+        ctx.strokeStyle = "red";
+        ctx.strokeRect(snake[i].x,snake[i].y,box,box);
+    }
+    
+    //draw food
+    ctx.drawImage(foodImg, food.x, food.y);
+    
+    // draw score
+    ctx.fillStyle = "white";
+    ctx.font = "45px Changa one"
+    ctx.fillText =  (score,2*box,1.6*box);
+    
+}
+
+let game = setInterval(draw,)
