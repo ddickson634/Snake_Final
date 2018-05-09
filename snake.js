@@ -27,6 +27,28 @@ let food = {
 
 let score = 0;
 
+//snake controls
+
+let d;
+
+document.addEventListener("keydown",direction);
+
+function direction(event){
+    
+    if(event.KeyCode == 37){
+        d = "LEFT";
+    }else if(event.KeyCode == 38){
+        d = "UP";
+    }else if(event.KeyCode == 39){
+        d = "RIGHT";
+    }else if(event.KeyCode == 40){
+        d = "DOWN";
+    }
+    
+}
+
+function direction
+
 //function to draw everything
 function draw(){
     
@@ -46,11 +68,15 @@ function draw(){
     //draw food
     ctx.drawImage(foodImg, food.x, food.y);
     
+    //old head position
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+    
     // draw score
     ctx.fillStyle = "white";
-    ctx.font = "45px Changa one"
-    ctx.fillText =  (score,2*box,1.6*box);
+    ctx.font = "40px Changa one";
+    ctx.fillText(score,2*box,1.6*box);
     
 }
 
-let game = setInterval(draw,)
+let game = setInterval(draw,100);
