@@ -35,23 +35,20 @@ document.addEventListener("keydown",direction);
 
 function direction(event){
     
-    if(event.KeyCode == 37){
+    if(event.keyCode == 37){
         d = "LEFT";
-    }else if(event.KeyCode == 38){
+    }else if(event.keyCode == 38){
         d = "UP";
-    }else if(event.KeyCode == 39){
+    }else if(event.keyCode == 39){
         d = "RIGHT";
-    }else if(event.KeyCode == 40){
+    }else if(event.keyCode == 40){
         d = "DOWN";
     }
     
 }
 
-function direction
-
 //function to draw everything
 function draw(){
-    
     
    //draw background 
     ctx.drawImage(ground,0,0);
@@ -71,6 +68,25 @@ function draw(){
     //old head position
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
+    
+    //remove tail
+    snake.pop();
+    
+    //directions
+    
+    if( d == "LEFT") snakeX -= box;
+    if( d == "UP") snakeY -= box;
+    if( d == "RIGHT") snakeX += box;
+    if( d == "DOWN") snakeY += box;
+    
+    
+    //make a new head square
+    let newHead = {
+        x : snakeX,
+        y : snakeY
+    }
+    
+    snake.unshift(newHead);
     
     // draw score
     ctx.fillStyle = "white";
